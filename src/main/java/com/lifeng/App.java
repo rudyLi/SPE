@@ -38,23 +38,6 @@ public class App
 //            e.printStackTrace();
 //        }
 
-        Kryo kryo = new Kryo();
-        NettyMessage.StreamMessage streamMessage = new NettyMessage.StreamMessage();
-        streamMessage.streams = new ArrayList<>();
-        streamMessage.streams.add(new Tuple());
-
-        ByteBuf byteBuf = Unpooled.buffer();
-        Output outputStream = new Output(new ByteBufOutputStream(byteBuf));
-
-        kryo.writeObject(outputStream, streamMessage);
-        outputStream.close();
-        System.out.println(byteBuf);
-
-
-        Input input = new Input(new ByteBufInputStream(byteBuf));
-        NettyMessage.StreamMessage ls = kryo.readObject(input, NettyMessage.StreamMessage.class);
-        input.close();
-        System.out.println(ls.streams.get(0));
     }
 
 }

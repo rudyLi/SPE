@@ -5,16 +5,19 @@ import com.lifeng.tuple.Tuple;
 
 public class QueryPlan {
     private OperatorIterator headOperator;
-
-    public void prepare() {
-
+    public void setHeadOperator(OperatorIterator iterator) {
+        this.headOperator = iterator;
     }
 
-    public Tuple next () {
-        return new Tuple();
+    public void open() throws Exception {
+        headOperator.open();
     }
 
-    public void close() {
+    public Tuple next () throws Exception {
+        return headOperator.next();
+    }
 
+    public void close() throws Exception {
+        headOperator.close();
     }
 }

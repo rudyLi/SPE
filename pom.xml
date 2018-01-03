@@ -52,21 +52,48 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>com.facebook.presto</groupId>-->
-      <!--<artifactId>presto-parser</artifactId>-->
-      <!--<version>0.190</version>-->
-    <!--</dependency>-->
     <dependency>
-      <groupId>org.antlr</groupId>
-      <artifactId>antlr4-runtime</artifactId>
-      <version>4.7.1</version>
+      <groupId>com.facebook.presto</groupId>
+      <artifactId>presto-parser</artifactId>
+      <version>0.190</version>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.antlr</groupId>-->
+      <!--<artifactId>antlr4-runtime</artifactId>-->
+      <!--<version>4.7.1</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.jline</groupId>
       <artifactId>jline</artifactId>
       <version>3.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>4.1.18.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>23.6-jre</version>
+    </dependency>
+    <dependency>
+      <groupId>com.esotericsoftware</groupId>
+      <artifactId>kryo</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.10.0</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.10.0</version>
     </dependency>
   </dependencies>
 </project>
