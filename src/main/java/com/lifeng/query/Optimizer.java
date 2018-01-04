@@ -29,7 +29,7 @@ public class Optimizer {
     }
 
     public static void main(String[] args) throws Exception {
-        Cursor cursor = Optimizer.query(new QueryContext(""),new MemoryStorage());
+        Cursor cursor = Optimizer.query(new QueryContext("select a from test limit 1"),new MemoryStorage());
         cursor.open();
         while (true) {
             Tuple tuple = cursor.next();
