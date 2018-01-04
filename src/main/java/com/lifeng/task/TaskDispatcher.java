@@ -1,6 +1,7 @@
 package com.lifeng.task;
 
 import com.lifeng.common.Configuration;
+import com.lifeng.network.StreamProcessResultQueue;
 import com.lifeng.stream.TopologyGraph;
 import com.lifeng.tuple.Tuple;
 
@@ -38,7 +39,11 @@ public class TaskDispatcher{
         List<Integer> childList = topologyGraph.getChildTasks(taskId);
         // send result to the client
         if (childList.isEmpty()) {
-            innerMessage.destQueue.add(innerMessage.destQueue);
+            try {
+                innerMessage.resultQueue.addNewTask(innerMessage.tuple);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         else {
             for (int childTask : childList) {
@@ -51,8 +56,8 @@ public class TaskDispatcher{
         return taskQueueMap.get(taskId).poll(time, timeUnit);
     }
 
-    public void publish(Tuple tuple, Queue queue) {
-        InnerMessage innerMessage = new InnerMessage(tuple, queue);
+    public void publish(Tuple tuple, StreamProcessResultQueue resultQueue) {
+        InnerMessage innerMessage = new InnerMessage(tuple, resultQueue);
         taskQueueMap.get(topologyGraph.getRootTaskId()).add(innerMessage);
     }
 

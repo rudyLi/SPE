@@ -19,7 +19,7 @@ public class JobManager {
 
     private void init() {
         taskDispatcher.init();
-        executorService = Executors.newFixedThreadPool(4);
+        executorService = Executors.newFixedThreadPool(taskDispatcher.getAllTasks().size());
         for (Task task : taskDispatcher.getAllTasks()){
             TaskManager taskManager = new TaskManager(task);
             taskManager.register(taskDispatcher);

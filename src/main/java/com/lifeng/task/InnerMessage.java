@@ -1,15 +1,14 @@
 package com.lifeng.task;
 
+import com.lifeng.network.StreamProcessResultQueue;
 import com.lifeng.tuple.Tuple;
 
-import java.util.Queue;
-
 public class InnerMessage {
-    Queue  destQueue;
+    StreamProcessResultQueue resultQueue;
     Tuple tuple;
-    InnerMessage(Tuple tuple, Queue queue) {
+    InnerMessage(Tuple tuple, StreamProcessResultQueue queue) {
         this.tuple = tuple;
-        this.destQueue = queue;
+        this.resultQueue = queue;
     }
 
 }
